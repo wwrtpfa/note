@@ -1,0 +1,59 @@
+# Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ${app_name}
+  name: ${app_name}
+  namespace: ${namespace}
+spec:
+  replicas: ${replicas} # 部署实例数
+  selector:
+    matchLabels:
+      app: ${app_name}
+  template:
+    metadata:
+      labels:
+        app: ${app_name}
+    spec:
+      volumes:
+      - name: secret-dyyun
+        secret:
+          secretName: secret-dyyun
+          
+      containers:
+      - image: ${image}
+        name: ${app_name}
+        volumeMounts:
+        - name: secret-dyyun
+          readOnly: true
+          mountPath: /etc/secrets/secret-dyyun
+        env:
+        - name: spring.profiles.active
+          value: ${spring_profile}
+        - name: spring.cloud.kubernetes.secrets.paths
+          value: /etc/secrets/secret-dyyun
+        - name: dyyun.log.logstash.host-port  
+          valueFrom:
+            configMapKeyRef:
+              name: dyyun-config
+              key: logstash.host-port
+          
+      imagePullSecrets:
+      - name: secret-docker # 指定docker pull secret
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ${app_name}
+  name: ${app_name}
+  namespace: ${namespace}
+spec:
+  ports:
+  - port: ${port}
+    protocol: TCP
+    targetPort: ${port}
+  selector:
+    app: ${app_name}

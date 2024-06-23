@@ -1,0 +1,29 @@
+# 指定一些变量
+
+# 项目工作目录
+context_path=${CONTEXT_PATH}
+
+# 应用名
+export app_name=dyyun-auth
+
+# spring profile
+export spring_profile=dev
+
+# 端口
+export port=9001
+
+# 实例数
+export replicas=1
+
+k8s_yaml=${context_path}/kubernetes/deployment-dyyun.yaml
+
+# ---------------------------复制的项目只需要修改上面的变量就行------------------------------
+
+# k8s namespace
+export namespace=dyyun
+
+# image
+export image=${DOCKER_PREFIX_DEV}${app_name}:${BUILD_NUMBER}
+
+# 部署
+envsubst < ${k8s_yaml} | kubectl apply -f -

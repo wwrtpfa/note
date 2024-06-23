@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dyyun-product-config
+  namespace: dyyun
+data:
+  application.yml: |
+    dyyun:
+      # mqtt
+      mqtt:
+        group-id: GID_DEV
+        parent-topic: yun_dev
+        url: ${mqtt.url}
+        access-key: ${mqtt.access-key}
+        secret-key: ${mqtt.secret-key}
+        instance-id: ${mqtt.instance-id}
+        time-to-wait: 10s
+        heart-time: 10000

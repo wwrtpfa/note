@@ -1,0 +1,115 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-dyyun
+  namespace: dyyun
+  annotations:
+    # 正则匹配
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    # 运营端
+    - host: ops.dyyun.mock
+      http:
+        paths:
+          # 前端ui
+          - path: /
+            pathType: Prefix
+            backend:
+              service: 
+                name: dyyun-ops-web
+                port: 
+                  number: 9501
+          # 后端api
+          - path: /api/ops
+            pathType: Prefix
+            backend:
+              service: 
+                name: dyyun-gateway
+                port: 
+                  number: 9000
+          
+    # 客户端          
+    - host: dyyun.mock
+      http:
+        paths:
+          # 前端ui
+          - path: /
+            pathType: Prefix
+            backend:
+              service: 
+                name: dyyun-customer-web
+                port: 
+                  number: 9502
+          # 后端api
+          - path: /api/customer
+            pathType: Prefix
+            backend:
+              service: 
+                name: dyyun-gateway
+                port: 
+                  number: 9000
+    # swagger
+    - host: swagger.dyyun.mock
+      http:
+        paths:
+          - path: /.*(swagger|openapi).*
+            pathType: Prefix
+            backend:
+              service: 
+                name: dyyun-gateway
+                port: 
+                  number: 9000
+    # svc接口
+    - host: svc.dyyun.mock
+      http:
+        paths:
+          # auth svc      
+          - path: /svc/auth
+            pathType: Prefix
+            backend:
+              service: 
+                name: dyyun-auth
+                port: 
+                  number: 9001
+          # ops svc       
+          - path: /svc/ops
+            pathType: Prefix
+            backend:
+              service: 
+                name: dyyun-ops
+                port: 
+                  number: 9002
+          # product svc      
+          - path: /svc/product
+            pathType: Prefix
+            backend:
+              service: 
+                name: dyyun-product
+                port: 
+                  number: 9003
+          # component svc          
+          - path: /svc/component
+            pathType: Prefix
+            backend:
+              service: 
+                name: dyyun-component
+                port: 
+                  number: 9004
+          # customer svc          
+          - path: /svc/customer
+            pathType: Prefix
+            backend:
+              service: 
+                name: dyyun-customer
+                port: 
+                  number: 9005
+          # customer svc          
+          - path: /svc/bi
+            pathType: Prefix
+            backend:
+              service: 
+                name: dyyun-bi
+                port: 
+                  number: 9006

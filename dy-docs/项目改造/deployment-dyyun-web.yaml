@@ -1,0 +1,39 @@
+# Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ${app_name}
+  name: ${app_name}
+  namespace: ${namespace}
+spec:
+  replicas: ${replicas} # 部署实例数
+  selector:
+    matchLabels:
+      app: ${app_name}
+  template:
+    metadata:
+      labels:
+        app: ${app_name}
+    spec:  
+      containers:
+      - image: ${image}
+        name: ${app_name}
+      imagePullSecrets:
+      - name: secret-docker # 指定docker pull secret
+---
+# Service
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: ${app_name}
+  name: ${app_name}
+  namespace: ${namespace}
+spec:
+  ports:
+  - port: ${port}
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: ${app_name}

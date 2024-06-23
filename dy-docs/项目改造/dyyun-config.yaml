@@ -1,0 +1,62 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dyyun-config
+  namespace: dyyun
+data:
+  logstash.host-port: 172.16.11.185:5044
+  application.yml: |
+    spring:      
+      servlet:
+        multipart:
+          max-file-size: 20MB
+          max-request-size: 21MB
+      jackson:
+        deserialization:
+          read-unknown-enum-values-as-null: true  
+
+    seata:
+      tx-service-group: my_test_tx_group
+      client:
+        undo:
+          log-serialization: kryo
+      service:
+        vgroup-mapping:
+          my_test_tx_group: default
+        grouplist:
+          default: ${dyyun.seata.host-port}
+
+    mapper:
+      safe-delete: true
+      safe-update: true
+    mybatis:
+      mapper-locations: classpath:mapper/*.xml
+      
+    xxl:
+      job:
+        admin-addresses: http://172.16.11.185:9999
+        accessToken: default_token
+        executor:
+          app-name: ${spring.application.name}
+      
+    dyyun:
+
+      # mysql
+      mysql:
+        host-port: 172.16.11.185:3306
+        username: ${mysql.username}
+        password: ${mysql.password}
+
+      # redis
+      redis:
+        host: 172.16.11.185
+        password: ${redis.password}
+        port: 6379
+
+      # seata
+      seata:
+        host-port: 172.16.11.185:8091
+        
+      # logstash
+      logstash:
+        host-port: 172.16.11.185:5044

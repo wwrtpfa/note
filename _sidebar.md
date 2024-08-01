@@ -14,7 +14,9 @@
 * personal
 
   - [java基础](markdown/JavaBase.md)
+  - [算法](markdown/算法.md)
   - [redis](markdown/Redis.md)
   - [mysql](markdown/Mysql篇.md)
   - [Juc并发编程](markdown/Juc并发编程.md)
   - [安装Linux系统](markdown/安装Linux系统.md)
+  - [读书](markdown/读书心得/认知觉醒.md)

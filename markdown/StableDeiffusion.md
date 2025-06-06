@@ -1,3 +1,13 @@
+---
+title: StableDeffution
+date: 2024/08/01 20:46:25
+categories:
+- Java
+tags:
+- Java 
+---
+
+
 **Model**:Chilloutmix-Ni.safetensors（7.7G）
 
 **Lora**:ulzzang、Taiwan Doll Likeness、Korean Doll Likeness

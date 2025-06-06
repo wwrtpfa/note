@@ -1,3 +1,12 @@
+---
+title: Linux常用命令
+date: 2024/08/01 20:46:25
+categories:
+- Java
+tags:
+- Java 
+---
+
 1. 防火墙
 
    ```shell

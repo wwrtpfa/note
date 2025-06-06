@@ -1,3 +1,13 @@
+---
+title: Mybatis
+date: 2024/08/01 20:46:25
+categories:
+- Java
+tags:
+- Java 
+---
+
+
 # Mybatis-Generate
 
 ---

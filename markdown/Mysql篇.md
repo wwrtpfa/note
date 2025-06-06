@@ -1,3 +1,13 @@
+---
+title: MySQL
+date: 2024/08/01 20:46:25
+categories:
+- Java
+tags:
+- Java 
+---
+
+
 1. ### **事务**：**atomicity、consistency、isolation、durability**
 
    xxxxxxxxxx ONBOOT=“yes” 表示启用该网卡IPADDR=192.168.11.11 指定一个静态IPGATEWAY=192.168.1.1 指定网关DNS1=8.8.8.8 连接外网需要配置 域名解析服务器DNS2=223.5.5.5static表示配置静态IP

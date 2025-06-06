@@ -1,3 +1,13 @@
+---
+title: Maven
+date: 2024/08/01 20:46:25
+categories:
+- Java
+tags:
+- Java 
+---
+
+
 # 背景
 
 ​		一般新建项目都是选择maven或spring initializr来生成项目，然后经过一系列的修改、配置、加入自己项目的一些风格。

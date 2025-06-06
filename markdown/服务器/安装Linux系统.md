@@ -1,3 +1,12 @@
+---
+title: 安装Linux系统
+date: 2024/08/01 20:46:25
+categories:
+- Java
+tags:
+- Java 
+---
+
 # dell 服务器 重装Linux系统
 
 ## 安装前的准备工作

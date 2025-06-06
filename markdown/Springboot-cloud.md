@@ -1,3 +1,12 @@
+---
+title: SpringCloud
+date: 2024/08/01 20:46:25
+categories:
+- Java
+tags:
+- Java 
+---
+
 1. @RestController==@Requestmapping+@RequestBody
 
 

@@ -1,3 +1,12 @@
+---
+title: Redis
+date: 2024/08/01 20:46:25
+categories:
+- Java
+tags:
+- Java 
+---
+
 # Redis[面试](https://blog.csdn.net/a745233700/category_10727715.html)
 
 ## 数据类型

@@ -1,3 +1,13 @@
+---
+title: Java基础
+date: 2024/08/01 20:46:25
+categories:
+- Java
+tags:
+- Java 
+---
+
+
 # 7月
 
 ## 1.1抽象类

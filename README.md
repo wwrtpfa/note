@@ -18,6 +18,7 @@
 - [Mysql](markdown/Mysql篇.md)
 - [Juc并发编程](markdown/Juc并发编程.md)
 - [安装Linux](markdown/安装Linux系统.md)
+- [科学网](markdown/服务器/科学网.md)
 
 
 ### solve:github上传问题

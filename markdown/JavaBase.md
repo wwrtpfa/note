@@ -31,7 +31,7 @@ next和nextline方法的区别在于nextLine会接收空格字符（包含空格
 next会去除输入前面和后面的回车字符，只截取有效字符。如果next在前面那就在二者间加一个next Line()吃掉一个换行,防止nextline无效。
 
 
-   > ![image-20220922112941512](http://cdn.pengfanao.top/image-20220922112941512.png)
+   > ![image-20220922112941512](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20220922112941512.png)
 
 如何在循环输入时，跳出while循环
 
@@ -164,7 +164,7 @@ String str4 = str1 + str2;当字符串相加部分中有变量，那么就会用
    System.out.println(b==d);   false
        对于修饰变量的final关键字可以理解为C语言中的const关键字，表明了变量是一个常量。对于String类的底层实现，和C++中的类似，也可以理解为对const char的封装。因此a,b,c的初始化都是将常量区中字符串的地址赋值给变量，不同的是对于变量a的理解为：typedef const char String; const String a="hello";即a指向地址不能变并且地址保存内容不能变。而d变量保存的则是通过new操作得到的堆上的地址，然后会把常量区字符串给拷贝到堆上的地址空间。java中对于final修饰的变量，在编译前直接把变量替换为值，类似于宏，因此a+"w"会替换为"hello"+"w",对于这一个操作，java会直接在常量区中找"hellow"，如果没找到，就会在常量区创建一个"hellow"，这一点可以从"hell"+"ow"c为true得到验证。而对于b变量没有被final修饰，所以b+"w"的操作，应该是String类型重载的+操作，这是在编译后执行的，由于String底层是const char*,所以应该会重新在堆上开辟空间后将地址赋值给b。上面这些比较的都是地址值，所以会出现上述执行结果   
 
-![image-20220816171743923](http://cdn.pengfanao.top/image-20220816171743923.png)
+![image-20220816171743923](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20220816171743923.png)
 
 2. [final变量和普通变量的区别](https://www.cnblogs.com/dolphin0520/p/3736238.html)
 
@@ -218,9 +218,9 @@ class MyClass {
 
 ## 1.5String底层
 
-![image-20220919113508537](http://cdn.pengfanao.top/image-20220919113508537.png)
+![image-20220919113508537](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20220919113508537.png)
 
-![image-20220919113932251](http://cdn.pengfanao.top/image-20220919113932251.png)
+![image-20220919113932251](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20220919113932251.png)
 
 tip:[ava final关键字和String常量 不可变的理解](https://blog.csdn.net/weililansehudiefei/article/details/71218789)
 
@@ -305,11 +305,11 @@ int n = i;   //拆箱
 
 ## 1.4[为什么重写equals必须重写hashCode](https://segmentfault.com/a/1190000024478811)
 
-1. > ![image-20220921114051684](http://cdn.pengfanao.top/image-20220921114051684.png)
+1. > ![image-20220921114051684](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20220921114051684.png)
 
 >
 
-2. ![image-20220920171740945](http://cdn.pengfanao.top/image-20220920171740945.png)
+2. ![image-20220920171740945](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20220920171740945.png)
 
 ```
 医学奇迹
@@ -326,7 +326,7 @@ int n = i;   //拆箱
 
 ## 1.6 Exception 和 Error 有什么区别：
 
-![image-20220921153427461](http://cdn.pengfanao.top/image-20220921153427461.png)
+![image-20220921153427461](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20220921153427461.png)
 
    > - **`Exception`** :程序本身可以处理的异常，可以通过 `catch` 来进行捕获。`Exception` 又可以分为 Checked Exception (受检查异常，必须处理) 和 Unchecked Exception (不受检查异常，可以不处理)。
    > - **`Error`** ：`Error` 属于程序无法处理的错误 ，我们没办法通过 `catch` 来进行捕获不建议通过`catch`捕获 。例如 Java 虚拟机运行错误（`Virtual MachineError`）、虚拟机内存不够错误(`OutOfMemoryError`)、类定义错误（`NoClassDefFoundError`）等 。这些异常发生时，Java 虚拟机（JVM）一般会选择线程终止
@@ -337,7 +337,7 @@ int n = i;   //拆箱
    >   要么是程序逻辑错误，如空指针异常；JVM必须停止运行以改正这种错误，所以运行时异常可以不进行处理（捕获或向上抛出，当然也可以处理），而由JVM自行处理。Java Runtime会自动catch到程序throw的RuntimeException，然后停止线程，打印异常。
    > - 非运行时异常是RuntimeException以外的异常，类型上都属于Exception类及其子类，是受检异常。非运行时异常必须进行处理（捕获或向上抛出），如果不处理，程序将出现编译错误。一般情况下，API中写了throws的Exception都不是RuntimeException。
    >
-   > ![image-20220921154231216](http://cdn.pengfanao.top/image-20220921154231216.png)
+   > ![image-20220921154231216](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20220921154231216.png)
 
 2. throw和throws
 
@@ -362,7 +362,7 @@ int n = i;   //拆箱
 > 2.根据构造器注入的，相当于当容器调用带有一组参数的类构造函数时，基于构造函数的 DI 就完成了，其中每个参数代表一个对其他类的依赖。基于构造方法为属性赋值，容器通过调用类的构造方法将其进行依赖注入
 
 
-![image-20220923134325648](http://cdn.pengfanao.top/image-20220923134325648.png)
+![image-20220923134325648](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20220923134325648.png)
 
 7. **IO多路复用**
 
@@ -594,11 +594,11 @@ int n = i;   //拆箱
    >
    > 头插法 如何“下移”
    >
-   > ![image-20230214215256088](http://cdn.pengfanao.top/image-20230214215256088.png)
+   > ![image-20230214215256088](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20230214215256088.png)
    >
    > 死循环图
    >
-   > ![image-20230211162046785](http://cdn.pengfanao.top/image-20230211162046785.png)
+   > ![image-20230211162046785](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20230211162046785.png)
    >
    > put方法：
    >
@@ -760,7 +760,7 @@ System.out.println("^= " + a3);
 
 11. git reset
 
-> ![img.png](http://cdn.pengfanao.top/img.png)
+> ![img.png](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/img.png)
 
 ## 1.11**JVM**
 
@@ -772,11 +772,11 @@ System.out.println("^= " + a3);
 >
 > **堆**：
 >
-> ![image-20220928141359322](http://cdn.pengfanao.top/image-20220928141359322.png)
+> ![image-20220928141359322](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20220928141359322.png)
 >
 > **方法区、元空间**：
 >
-> ![image-20220928142715409](http://cdn.pengfanao.top/image-20220928142715409.png)
+> ![image-20220928142715409](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20220928142715409.png)
 >
 > **方法区**和**永久代**以及**元空间**是什么关系呢？ 方法区和永久代以及元空间的关系很像 Java 中接口和类的关系，类实现了接口，这里的类就可以看作是永久代和元空间，接口可以看作是方法区，也就是说永久代以及元空间是 HotSpot 虚拟机对虚拟机规范中方法区的两种实现方式。并且，永久代是 JDK 1.8 之前的方法区实现，JDK 1.8 及以后方法区的实现变成了元空间。
 
@@ -887,7 +887,7 @@ public void add(int index, E element) {
 
 ### git命令
 
-![image-20230515110433812](images/JavaBase.assets/image-20230515110433812.png)
+![image-20230515110433812](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20230515110433812.png)
 
 git stash 暂存
 

@@ -13,7 +13,7 @@ tags:
 
 Flowable是BPMN的一个基于java的软件实现，不过Flowable不仅仅包括BPMN，还有DMN决策表和CMMN Case管理引擎，并且有自己的用户管理、微服务API等一系列功能，是一个服务平台。
 
-![image-20220317101115398](http://cdn.pengfanao.top/image-20220317101115398.png)
+![image-20220317101115398](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20220317101115398.png)
 
 ## 二、概念
 
@@ -37,7 +37,7 @@ Flowable是BPMN的一个基于java的软件实现，不过Flowable不仅仅包�
 
 假如流程本身就是一条线，那么流程实例和执行实例基本上是一样的，但是如果流程中包含多条线，例如下图：
 
-![图片](http://cdn.pengfanao.top/640)
+![image-20250705104733192](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20250705104733192.png)
 
 这张图中有并行网关，并行任务执行的时候，每一个并行任务就是一个执行实例，这样大家就好理解了
 
@@ -47,7 +47,7 @@ Flowable是BPMN的一个基于java的软件实现，不过Flowable不仅仅包�
 
 关系图
 
-![image-20220324095243595](http://cdn.pengfanao.top/image-20220324095243595.png)
+![image-20220324095243595](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20220324095243595.png)
 
 ## 三、制作流程图
 
@@ -69,11 +69,11 @@ password: test
 
 登录flowable-ui后进入首页界面
 
-![image-20221014100745127](http://cdn.pengfanao.top/image-20221014100745127.png)
+![image-20221014100745127](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20221014100745127.png)
 
 进入建模器应用程序点击创建流程图
 
-![image-20221014101013055](http://cdn.pengfanao.top/image-20221014101013055.png)
+![image-20221014101013055](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20221014101013055.png)
 
 
 
@@ -255,7 +255,7 @@ password: test
 </definitions>
 ```
 
-![image-20221014131734423](http://cdn.pengfanao.top/image-20221014131734423.png)
+![image-20221014131734423](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20221014131734423.png)
 
 任务监听器和执行监听器需配置java相关类
 
@@ -311,7 +311,7 @@ flowable:
     url: jdbc:mysql://localhost:3306/dyyun_flowable?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
 ```
 
-![image-20221014142918883](http://cdn.pengfanao.top/image-20221014142918883.png)
+![image-20221014142918883](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20221014142918883.png)
 
 由于flowable自带的表过多，为将实际业务所需数据库表分开，可以为flowable配置自定义数据源
 
@@ -404,7 +404,7 @@ public class FlowableTaskListener implements TaskListener {
 
 ### 核心api
 
-![image-20220317110902636](http://cdn.pengfanao.top/image-20220317110902636.png)
+![image-20220317110902636](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20220317110902636.png)
 
 ### 部署流程
 

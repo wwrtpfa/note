@@ -118,15 +118,15 @@ redis-cli -p 端口号
 >
 > ​       删除锁delete lock
 >
-> ![image-20230216221945209](http://cdn.pengfanao.top/image-20230216221945209.png)
+> ![image-20230216221945209](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20230216221945209.png)
 >
-> ![image-20230216222801355](http://cdn.pengfanao.top/image-20230216222801355.png)
+> ![image-20230216222801355](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20230216222801355.png)
 >
 > - 热点数据key不过期，定时更新缓存，但如果更新出问题会导致缓存中的数据一直为旧数据。(根据业务场景)
 >
 > - 逻辑过期：子线程重建缓存
 >
-> ![image-20230216225122765](http://cdn.pengfanao.top/image-20230216225122765.png)
+> ![image-20230216225122765](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20230216225122765.png)
 >
 > 
 >
@@ -150,17 +150,17 @@ redis-cli -p 端口号
   - 先删除缓存，在更新数据库
   - 先更新数据库在删除缓存（一般方案，操作内存快，操作数据库慢）
 
-  ![image-20230216203236229](http://cdn.pengfanao.top/image-20230216203236229.png)
+  ![image-20230216203236229](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20230216203236229.png)
 
 ### redisssion
 
 - 可重入
 
-![image-20230217213139563](http://cdn.pengfanao.top/image-20230217213139563.png)
+![image-20230217213139563](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20230217213139563.png)
 
-![image-20230217213321261](http://cdn.pengfanao.top/image-20230217213321261.png)
+![image-20230217213321261](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20230217213321261.png)
 
-![image-20230217213343531](http://cdn.pengfanao.top/image-20230217213343531.png)
+![image-20230217213343531](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20230217213343531.png)
 
 ```java
 //redisson 可重入  可重试锁 
@@ -252,9 +252,9 @@ public boolean tryLock(long waitTime, long leaseTime, TimeUnit unit) throws Inte
 
 ### 秒杀业务解耦
 
-![image-20230219132835067](http://cdn.pengfanao.top/image-20230219132835067.png)
+![image-20230219132835067](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20230219132835067.png)
 
-![image-20230219133419541](http://cdn.pengfanao.top/image-20230219133419541.png)
+![image-20230219133419541](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20230219133419541.png)
 
 **生成订单**
 
@@ -298,13 +298,13 @@ return 0
 
 - redis:扣减库存,使用阻塞队列指令LRPUSH、LRPOP
 
-![image-20230219165204989](http://cdn.pengfanao.top/image-20230219165204989.png)
+![image-20230219165204989](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20230219165204989.png)
 
 - 订阅型消费
 
   SUBSCRIBLE、PUBLISH
 
-  ![image-20230219170532961](http://cdn.pengfanao.top/image-20230219170532961.png)
+  ![image-20230219170532961](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20230219170532961.png)
 
 - stream实现消息队列
   - XADD: XADD S! * k1 v1

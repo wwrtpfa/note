@@ -14,7 +14,7 @@ tags:
 
 **VAE**:
 
-![image-20230326215850970](images/StableDeiffusion.assets/image-20230326215850970.png)
+![image-20230326215850970](https://pfa-oss-example.oss-cn-hangzhou.aliyuncs.com/imgs/image-20230326215850970.png)
 
 **contollnet**:动漫人物转真实模型
 

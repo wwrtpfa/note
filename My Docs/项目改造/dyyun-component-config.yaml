@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dyyun-component-config
+  namespace: dyyun
+data:
+  application.yml: |
+    dyyun:
+      oss:
+        provider: ali
+        url-expire-time: 1h
+        ali:
+          bucket: dyyun-dev
+          access-key-id: ${oss.ali.access-key-id}
+          access-key-secret: ${oss.ali.access-key-secret}
+          default-endpoint: oss-cn-shanghai.aliyuncs.com
+          endpoints:
+            - application-name: dyyun-ops
+              url: oss-cn-shanghai.aliyuncs.com
+            - application-name: dyyun-customer
+              url: oss-cn-shanghai.aliyuncs.com
+      sms:
+        provider: ali
+        ali:
+          access-key-id: ${sms.ali.access-key-id}
+          access-key-secret: ${sms.ali.access-key-secret}
+          endpoint: dysmsapi.aliyuncs.com

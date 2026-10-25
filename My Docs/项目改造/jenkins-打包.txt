@@ -1,0 +1,43 @@
+# 指定一些变量
+
+# 项目工作目录
+context_path=${CONTEXT_PATH}
+
+# 应用名
+project_name=dyyun-auth
+
+
+# 打包好的jar位置
+job_jar_file=${WORKSPACE}/${project_name}-web/target/*.jar
+
+# ---------------------------复制的项目只需要修改上面的变量就行------------------------------
+
+app_name=${project_name}
+
+# dockerfile文件位置
+dockerfile_file=${context_path}/dyyun-dockerfile
+
+# image
+image=${DOCKER_PREFIX_DEV}${project_name}:${BUILD_NUMBER}
+
+# 需要使用原生cp命令 不然默认是 cp -i 会有提示
+\cp ${job_jar_file} ${context_path}/${project_name}.jar
+
+# 打包docker image
+docker build -f ${dockerfile_file} --build-arg jar_file=${project_name}.jar -t ${image} ${context_path}
+
+# 打包后删除jar
+rm -f job_jar_file
+rm -f ${context_path}/${project_name}.jar
+
+# 登录阿里云docker镜像仓库
+docker login -u "湖南鼎一致远科技发展有限公司" -p "${ALI_DOCKER_PASSWORD}" registry.cn-shanghai.aliyuncs.com
+
+# 上传镜像到阿里云
+docker push ${image}
+
+# 退出阿里云docker镜像仓库
+docker logout
+
+# 删除本地打包的镜像
+# docker rmi ${image}

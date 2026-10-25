@@ -1,0 +1,44 @@
+# 打包为docker镜像
+
+# 项目工作目录
+context_path=${CONTEXT_PATH}
+
+# 项目名
+project_name=dyyun-customer-web
+
+# 打包好的dist路径
+dist_paht=${WORKSPACE}/dist
+
+# dockerfile文件位置
+dockerfile_file=${context_path}/dyyun-dockerfile-web
+
+# ---------------------------复制的项目只需要修改上面的变量就行------------------------------
+
+# docker镜像名
+docker_image_name=${DOCKER_PREFIX_DEV}${project_name}
+
+# docker镜像tag
+docker_image_tag=${BUILD_NUMBER}
+
+# 移动dist目录
+\cp -r ${dist_paht} ${context_path}/${project_name}
+
+
+# 打包docker image
+docker build -f ${dockerfile_file} --build-arg DIST_PATH=${project_name} -t ${docker_image_name}:${docker_image_tag} ${context_path}
+
+# 删除dist目录
+rm -rf ${dist_paht}
+rm -rf ${context_path}/${project_name}
+
+# 登录阿里云docker镜像仓库
+docker login -u "湖南鼎一致远科技发展有限公司" -p "${ALI_DOCKER_PASSWORD}" registry.cn-shanghai.aliyuncs.com
+
+# 上传镜像到阿里云
+docker push ${docker_image_name}:${docker_image_tag}
+
+# 退出阿里云docker镜像仓库
+docker logout
+
+# 删除本地打包的镜像
+# docker rmi ${docker_image_name}:${docker_image_tag}
